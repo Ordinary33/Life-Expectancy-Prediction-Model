@@ -2,6 +2,7 @@
 
 ![Python](https://img.shields.io/badge/python-3.13-blue)
 ![Scikit-Learn](https://img.shields.io/badge/scikit--learn-1.3.0-orange)
+![Jupyter Notebook](https://img.shields.io/badge/Jupyter-Notebook-orange)
 
 Predict life expectancy of countries based on health, demographic, and economic indicators using machine learning.
 
