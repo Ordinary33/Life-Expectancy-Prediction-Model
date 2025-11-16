@@ -47,7 +47,7 @@ def predict(data: InputData):
                       data.measles, data.bmi, data.under_five_deaths, data.polio,
                       data.total_expenditures, data.diphtheria, data.hiv_aids,
                       data.gdp, data.schooling, data.thinness, encoded_country]])
-    y_pred = model.predict(X)
+    y_pred = model.predict(X)[0]
     
     return {"life_expectancy": y_pred[0]}
 
