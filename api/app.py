@@ -4,16 +4,25 @@ import pickle
 import joblib
 import pandas as pd
 import numpy as np
+import os
 from pydantic import BaseModel
 from sklearn.ensemble import RandomForestRegressor
+from pathlib import Path
+
+__version__ = "1.0.0"
 
 app = FastAPI()
 
+
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_DIR = (BASE_DIR / ".." / "models").resolve()
+
 #Load the model
-model = pickle.load(open('../models/final_model.pkl', 'rb'))
+model = pickle.load(open(MODEL_DIR / "model-1.0.0.pkl", "rb"))
+
     
 #Load preprocessor
-country_encoder = joblib.load(open('../models/encoded_country.pkl', 'rb'))
+country_encoder = joblib.load(open(MODEL_DIR / "encoded_country.pkl", "rb"))
 
 if isinstance(country_encoder, pd.Series):
     global_mean = country_encoder.mean()
@@ -37,6 +46,9 @@ class InputData(BaseModel):
     thinness: float
     country: str
     
+@app.get("/")
+def home():
+    return {"Health Check": "API IS RUNNING", "version": __version__}
     
 
 @app.post("/predict")
@@ -49,7 +61,7 @@ def predict(data: InputData):
                       data.gdp, data.schooling, data.thinness, encoded_country]])
     y_pred = model.predict(X)[0]
     
-    return {"life_expectancy": y_pred[0]}
+    return {"life_expectancy": y_pred}
 
 if __name__ == "__main__":
     uvicorn.run(app)

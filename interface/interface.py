@@ -1,24 +1,6 @@
 import gradio as gr
 import requests
-from pydantic import BaseModel
 
-class InputData(BaseModel):
-    year: int
-    adult_mortality: float
-    alcohol: float
-    hepatitis_b: float
-    measles: int
-    bmi: float
-    under_five_deaths: int
-    polio: float
-    total_expenditures: float
-    diphtheria: float
-    hiv_aids: float
-    gdp: float
-    schooling: float
-    thinness: float
-    country: str
-    
 def predict(year, adult_mortality, alcohol, hepatitis_b, measles, bmi,
             under_five_deaths, polio, total_expenditures, diphtheria,
             hiv_aids, gdp, schooling, thinness, country):
