@@ -63,5 +63,3 @@ def predict(data: InputData):
     
     return {"life_expectancy": y_pred}
 
-if __name__ == "__main__":
-    uvicorn.run(app)

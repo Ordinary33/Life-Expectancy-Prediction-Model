@@ -49,4 +49,3 @@ ui = gr.Interface(
     description="Predict life expectancy based on various health and demographic factors.",
 )
 
-ui.launch()
