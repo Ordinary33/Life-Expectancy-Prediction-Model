@@ -31,7 +31,7 @@ This project predicts life expectancy of countries using machine learning. It de
 
 - Contains country-level statistics including:  
   - `Adult Mortality`, `Alcohol`, `BMI`, `GDP`, `Schooling`, `HIV/AIDS`, etc.  
-- Source: [Insert dataset source here, e.g., Kaggle link]  
+- Source: [https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who/code]  
 - Preprocessing steps:
   - Interpolation of missing numerical values per country  
   - Mean imputation for remaining missing values  
@@ -40,6 +40,7 @@ This project predicts life expectancy of countries using machine learning. It de
 ---
 
 ## Project Structure
+```text
 life-expectancy-predictor/
 │
 ├─ data/ # Raw and processed datasets
@@ -49,11 +50,9 @@ life-expectancy-predictor/
 ├─ README.md
 ├─ requirements.txt
 └─ .gitignore
+```
 
 ## Future Improvements
-
-- Hyperparameter tuning using GridSearchCV or Optuna  
 - Experiment with additional regression algorithms  
 - Feature selection / dimensionality reduction  
-- Build a simple web app for real-time predictions
 
